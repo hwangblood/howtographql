@@ -52,6 +52,17 @@ export const AuthMutation = extendType({
       },
       async resolve(parent, args, context) {
         const { email, name } = args;
+
+        const existedUser = await context.prisma.user.findUnique({
+          where: { email: email },
+        });
+
+        if (existedUser) {
+          throw new Error(
+            "The email already has been used, can signup with it."
+          );
+        }
+
         const password = await argon2.hash(args.password);
 
         const user = await context.prisma.user.create({
