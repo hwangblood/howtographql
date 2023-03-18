@@ -62,9 +62,9 @@ export interface NexusGenFieldTypes {
     user: NexusGenRootTypes['User']; // User!
   }
   Link: { // field return type
+    author: NexusGenRootTypes['User'] | null; // User
     description: string; // String!
     id: number; // Int!
-    postedBy: NexusGenRootTypes['User'] | null; // User
     url: string; // String!
   }
   Mutation: { // field return type
@@ -89,9 +89,9 @@ export interface NexusGenFieldTypeNames {
     user: 'User'
   }
   Link: { // field return type name
+    author: 'User'
     description: 'String'
     id: 'Int'
-    postedBy: 'User'
     url: 'String'
   }
   Mutation: { // field return type name
