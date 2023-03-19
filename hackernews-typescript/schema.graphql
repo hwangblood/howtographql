@@ -24,7 +24,7 @@ type Link {
   description: String!
   id: Int!
   url: String!
-  voters: [User!]!
+  voters: [User!]
 }
 
 input LinkOrderByInput {
@@ -53,9 +53,9 @@ enum Sort {
 type User {
   email: String!
   id: Int!
-  links: [Link!]!
+  links: [Link!]
   name: String!
-  votes: [Link!]!
+  votes: [Link!]
 }
 
 type Vote {

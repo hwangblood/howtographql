@@ -2,7 +2,27 @@
 
 Build your own GraphQL server with TypeScript, Apollo Server, Nexus and Prisma
 
-## Run
+## Run Locally
+
+PostgresQL datababse:
+
+```sh
+docker-compose up
+```
+
+Install dependencies:
+
+```sh
+yarn
+```
+
+Generate Prisma CLient:
+
+```sh
+yarn prisma generate
+```
+
+Run server:
 
 ```sh
 yarn run dev
@@ -10,22 +30,60 @@ yarn run dev
 
 Now you should be served GraphQL Playground at http://localhost:3000/.
 
-## Prisma
+## GraphQL Examples
 
-Initialize Prisma, and manually define models:
+Run the following queries one after another to test out the `signup`, `post` mutation and the `feed` query. Make sure to set the `Authorization` header after the first query.
 
-```sh
-yarn prisma init
-```
+```graphql
+mutation SignUpMutation {
+  signup(name: "Alice", email: "alice@prisma.io", password: "graphql") {
+    token
+    user {
+      id
+    }
+  }
+}
 
-Generate migrations file named with `--name` flag, also create tables in database:
+mutation FirstPostMutation {
+  post(
+    url: "nexusjs.org"
+    description: "Code-First GraphQL schemas for JavaScript/TypeScript"
+  ) {
+    id
+    description
+    url
+    postedBy {
+      id
+      name
+      email
+    }
+  }
+}
 
-```sh
-yarn prisma migrate dev --name "init"
-```
+mutation SecondPostMutation {
+  post(
+    url: "www.prisma.io"
+    description: "Next-generation Node.js and TypeScript ORM"
+  ) {
+    id
+    description
+    url
+    postedBy {
+      id
+      name
+      email
+    }
+  }
+}
 
-(Re-)generate Prisma Client:
-
-```sh
-yarn prisma generate
+query FeedQuery {
+  feed {
+    count
+    links {
+      id
+      createdAt
+      description
+    }
+  }
+}
 ```

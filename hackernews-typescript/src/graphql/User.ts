@@ -6,7 +6,7 @@ export const User = objectType({
     t.nonNull.int("id");
     t.nonNull.string("name");
     t.nonNull.string("email");
-    t.nonNull.list.nonNull.field("links", {
+    t.list.nonNull.field("links", {
       type: "Link",
       resolve(parent, args, context) {
         return context.prisma.user
@@ -14,7 +14,7 @@ export const User = objectType({
           .links();
       },
     });
-    t.nonNull.list.nonNull.field("votes", {
+    t.list.nonNull.field("votes", {
       type: "Link",
       resolve(parent, args, context) {
         return context.prisma.user
