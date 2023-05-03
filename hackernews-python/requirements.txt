@@ -1,0 +1,16 @@
+aniso8601==7.0.0
+certifi==2021.5.30
+Django==2.1.4
+django-environ==0.10.0
+django-filter==2.0.0
+django-graphql-jwt==0.1.5
+graphene==2.1.9
+graphene-django==2.2.0
+graphql-core==2.3.2
+graphql-relay==2.0.1
+promise==2.3
+PyJWT==2.4.0
+pytz==2023.3
+Rx==1.6.3
+singledispatch==3.7.0
+six==1.16.0
