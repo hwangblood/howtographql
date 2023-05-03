@@ -52,7 +52,7 @@ mutation FirstPostMutation {
     id
     description
     url
-    postedBy {
+    author {
       id
       name
       email
@@ -68,7 +68,7 @@ mutation SecondPostMutation {
     id
     description
     url
-    postedBy {
+    author {
       id
       name
       email
