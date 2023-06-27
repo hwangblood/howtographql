@@ -9,3 +9,23 @@ go mod download
 
 go run server.go
 ```
+
+Examples:
+
+```
+query ListLinks {
+	links{
+    title
+    address,
+    user{
+      name
+    }
+  }
+}
+
+query ListLinksTitle {
+	links{
+    title
+  }
+}
+```
